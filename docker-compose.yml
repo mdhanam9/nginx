@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  web:
+    image: mdhanam9/nginx:latest
+    container_name: nginx
+    command : "nginx -g 'daemon off;'"
+    ports:
+    - "443:443"
+    - "1883:1883"
+      #- "4548:4548"
+      #- "4549:4549"
+    volumes:
+    - "/home/gkadmin/k8s/nginx/www:/usr/share/nginx/html:ro"
+    - "/home/gkadmin/k8s/nginx/conf:/etc/nginx:ro"
+    - "/home/gkadmin/k8s/nginx/logs:/var/log/nginx"
+    - "/home/gkadmin/k8s/nginx/pki:/etc/pki/nginx:ro"
